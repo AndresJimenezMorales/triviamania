@@ -59,7 +59,6 @@ button:hover {
     background-clip: text;
     color: transparent;
     animation: rainbow-flow 20s linear infinite;
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
 }
 
 @keyframes rainbow-flow {
