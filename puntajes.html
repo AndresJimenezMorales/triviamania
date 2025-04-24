@@ -26,10 +26,10 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="index.html">Inicio</a>
+                        <a class="nav-link active" aria-current="page" href="index.html">Inicio</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="instrucciones.html">Instrucciones</a>
+                        <a class="nav-link" href="instrucciones.html">Instrucciones</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="puntajes.html">Puntajes</a>
@@ -48,36 +48,66 @@
     </header>
 
 
-    <section id="Bienvenido">
-        <div class="container-fluid my-5">
+    <section id="SeccionPuntajes">
+        <div class="container my-5">
             <div class="row justify-content-center">
                 <div class="col-md-8">
-                    <div class="bg-light p-5 rounded shadow-sm text-center">
-                        <h2>¡Bienvenido a Trivia Mania!</h2>
-                        <p class="text-black">A continuacion tendras las Instrucciones</p>
-                        <div class="d-grid gap-3">
-                            <ol>
-                                <li> <strong>Selecciona una categoría:</strong> 
-                                Puedes elegir entre distintas temáticas como Geografía, Historia, Ciencia, Cultura general y más.
-                                </li> 
-                                <li> <strong>Gana puntos por cada acierto:</strong> 
-                                Obtendrás 1 punto por cada respuesta correcta. No se descuentan puntos por errores, ¡así que no dudes en intentarlo!
-                                </li> 
-                                <li> <strong>Sigue tu progreso:</strong> 
-                                Verás en pantalla cuántas preguntas llevas y cuántas has acertado.
-                                </li> 
-                                <li> <strong>Guarda tu resultado:</strong> 
-                                Al final del juego, puedes guardar tu puntaje con tu nombre para ver si logras entrar en el top de jugadores.
-                                </li> 
-                            </ol>
-                            <button id="Volver" class="btn btn-danger w-100 mb-3"><a style="text-decoration: none; color: white;" href="index.html">Volver</a></button>
-                        </div>
+                    <div class="bg-light p-4 rounded text-center">
+                        <h2>Tabla de Puntajes</h2>
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Nombre</th>
+                                    <th>Puntuación</th>
+                                    <th>Hora</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tablaPuntajes">
+                                
+                            </tbody>
+                        </table>
+                        <button id="Volver" class="btn btn-danger w-100 mb-3"><a style="text-decoration: none; color: white;" href="index.html">Volver</a></button>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
+
+
+    <script>
+        function mostrarPuntajes() {
+                const puntajes = JSON.parse(localStorage.getItem("puntajes")) || [];
+                const tablaPuntajes = document.getElementById("tablaPuntajes");
+
+                // Si no hay puntajes, mostrar mensaje
+                if (puntajes.length === 0) {
+                    tablaPuntajes.innerHTML = '<tr><td colspan="3" class="text-center">No hay puntajes guardados</td></tr>';
+                }
+
+                tablaPuntajes.innerHTML = '';
+
+                puntajes.forEach(puntaje => {
+                    const fila = document.createElement('tr');
+
+                    const celdaNombre = document.createElement('td');
+                    celdaNombre.textContent = puntaje.nombre;
+                    const celdaPuntuacion = document.createElement('td');
+                    celdaPuntuacion.textContent = puntaje.puntuacion;
+                    const celdaHora = document.createElement('td');
+                    celdaHora.textContent = puntaje.hora;
+
+
+                    fila.appendChild(celdaNombre);
+                    fila.appendChild(celdaPuntuacion);
+                    fila.appendChild(celdaHora);
+
+                    tablaPuntajes.appendChild(fila);
+                });
+            }
+
+            mostrarPuntajes();
+    </script>
     <script src="js/codigo.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"

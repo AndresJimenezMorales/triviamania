@@ -32,10 +32,10 @@
                         <a class="nav-link" href="instrucciones.html">Instrucciones</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Puntajes</a>
+                        <a class="nav-link" href="puntajes.html">Puntajes</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Creditos</a>
+                        <a class="nav-link" href="creditos.html">Creditos</a>
                     </li>
                 </ul>
             </div>
@@ -47,25 +47,7 @@
         <p class="fst-italic">¡Pon a prueba tu mente y conquista el conocimiento!</p>
     </header>
 
-
-    <section id="Bienvenido">
-        <div class="container-fluid my-5">
-            <div class="row justify-content-center">
-                <div class="col-md-8">
-                    <div class="bg-light p-5 rounded shadow-sm text-center">
-                        <h2>¡Bienvenido a Trivia Mania!</h2>
-                        <p class="text-black">¿Listo para poner a prueba tus conocimientos?</p>
-                        <div class="d-grid gap-3">
-                            <button id="btn-jugar" class="btn btn-success">🎮 Jugar</button>
-                            <button id="btn-musica" class="btn btn-info">🎵 Música: OFF</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="ModoJuego" style="display: none;">
+    <section id="ModoJuego">
         <div class="container my-5">
             <div class="row justify-content-center">
                 <div class="col-md-8">
@@ -75,7 +57,7 @@
                         <button id="Historia" class="btn btn-primary w-100 mb-3">Historia</button>
                         <button id="Ciencia" class="btn btn-primary w-100 mb-3">Ciencia</button>
                         <button id="Deportes" class="btn btn-primary w-100 mb-3">Deportes</button>
-                        <button id="Volver" class="btn btn-danger w-100 mb-3">Volver</button>
+                        <a href="index.html" id="Volver" class="btn btn-danger w-100 mb-3">Volver</a>
                     </div>
                 </div>
             </div>
@@ -92,8 +74,9 @@
                             <div id="BarraProgreso" class="progress-bar" role="progressbar" style="width: 0%"></div>
                         </div>
                         <h3 id="Pregunta" class="mb-4"></h3>
-                        <div id="Opciones" class="d-grid gap-2">
-
+                        <div id="Opciones" class="d-grid gap-2"></div>
+                        <div class="text-center mb-4">
+                            <span id="PreguntaContador" class="text-muted">Pregunta 1 de 10</span>
                         </div>
                         <div class="text-center mt-4">
                             <p id="MensajeRespuesta" class="mb-3"></p>
@@ -114,7 +97,15 @@
                 <div class="col-md-8">
                     <div class="bg-light p-4 rounded shadow-sm text-center">
                         <h2>¡Juego terminado!</h2>
-                        <p class="fs-4 text-black">Tu puntuación: <span id="PuntuacionFinal"></span> de 5</p>
+                        <p class="fs-4 text-black">Tu puntuación: <span id="PuntuacionFinal"></span> de 10</p>
+    
+                        <!-- Mostrar el input y el botón de guardar puntuación -->
+                        <div class="d-flex justify-content-center align-items-center mb-4">
+                            <label for="NombreJugador" class="me-2">Ingresa tu nombre:</label>
+                            <input type="text" id="NombreJugador" class="form-control me-2" style="width: auto;" />
+                            <button id="btnGuardarPuntuacion" class="btn btn-primary">Ingresar</button>
+                        </div>
+    
                         <button id="JugarDeNuevo" class="btn btn-primary">Jugar de nuevo</button>
                     </div>
                 </div>
@@ -122,7 +113,24 @@
         </div>
     </section>
 
-
+    <!-- Modal de Confirmación -->
+    <div class="modal fade" id="ModalConfirmacion" tabindex="-1" aria-labelledby="ModalConfirmacionLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="ModalConfirmacionLabel">¡Puntuación Guardada!</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Tu puntuación ha sido guardada exitosamente.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
     <script src="js/codigo.js"></script>
