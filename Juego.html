@@ -91,26 +91,29 @@
         </div>
     </section>
 
-    <section id="SeccionResultados" style="display: none;">
-        <div class="container my-5">
-            <div class="row justify-content-center">
-                <div class="col-12 col-md-10 col-lg-8">
-                    <div class="bg-light p-4 rounded shadow-sm text-center">
-                        <h2>¡Juego terminado!</h2>
-                        <p class="fs-4 text-black">Tu puntuación: <span id="PuntuacionFinal"></span> de 10</p>
-    
-                        <div class="d-flex justify-content-center align-items-center mb-4">
-                            <label for="NombreJugador" class="me-2">Ingresa tu nombre:</label>
-                            <input type="text" id="NombreJugador" class="form-control me-2" style="width: auto;" />
-                            <button id="btnGuardarPuntuacion" class="btn btn-primary">Ingresar</button>
+<section id="SeccionResultados" style="display: none;">
+    <div class="container my-5">
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-10 col-lg-8">
+                <div class="bg-light p-4 rounded shadow-sm text-center">
+                    <h2>¡Juego terminado!</h2>
+                    <p class="fs-4 text-black">Tu puntuación: <span id="PuntuacionFinal"></span> de 10</p>
+
+                    <div class="mb-4">
+                        <div class="mb-3">
+                            <label for="NombreJugador" class="form-label">Ingresa tu nombre:</label>
+                            <input type="text" id="NombreJugador" class="form-control mx-auto"
+                                style="max-width: 300px;" />
                         </div>
-    
-                        <button id="JugarDeNuevo" class="btn btn-primary">Jugar de nuevo</button>
+                        <button id="btnGuardarPuntuacion" class="btn btn-primary">Ingresar</button>
                     </div>
+
+                    <button id="JugarDeNuevo" class="btn btn-primary">Jugar de nuevo</button>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
     <!-- Modal de Confirmación -->
     <div class="modal fade" id="ModalConfirmacion" tabindex="-1" aria-labelledby="ModalConfirmacionLabel"
