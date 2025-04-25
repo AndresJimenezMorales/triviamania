@@ -5,7 +5,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Trivia Mania</title>
-    <link rel="stylesheet" href="css/estilos.css">
+    <!-- <link rel="stylesheet" href="css/estilos.css"> -->
+    <link rel="stylesheet" href="css/estilos2.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -16,7 +17,7 @@
 
 <body>
 
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top">
         <div class="container-fluid">
             <a class="navbar-brand" href="index.html">TriviaMania</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -24,18 +25,15 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
+                <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="index.html">Inicio</a>
+                        <a class="nav-link" href="index.html">Inicio</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="instrucciones.html">Instrucciones</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="puntajes.html">Puntajes</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="creditos.html">Creditos</a>
+                        <a class="nav-link active" aria-current="page" href="puntajes.html">Puntajes</a>
                     </li>
                 </ul>
             </div>
@@ -44,14 +42,14 @@
 
     <header class="py-5 text-center">
         <h1 class="TextoPrincipal textoArcoiris">Trivia Mania</h1>
-        <p class="fst-italic">¡Pon a prueba tu mente y conquista el conocimiento!</p>
+        <p class="fst-italic text-white">¡Pon a prueba tu mente y conquista el conocimiento!</p>
     </header>
 
 
     <section id="SeccionPuntajes">
         <div class="container my-5">
             <div class="row justify-content-center">
-                <div class="col-md-8">
+                <div class="col-12 col-md-10 col-lg-8">
                     <div class="bg-light p-4 rounded text-center">
                         <h2>Tabla de Puntajes</h2>
                         <table class="table table-hover">
@@ -66,7 +64,7 @@
                                 
                             </tbody>
                         </table>
-                        <button id="Volver" class="btn btn-danger w-100 mb-3"><a style="text-decoration: none; color: white;" href="index.html">Volver</a></button>
+                        <a href="index.html" id="Volver" class="btn btn-danger w-100 mb-3">Volver</a>
                     </div>
                 </div>
             </div>
@@ -80,8 +78,7 @@
                 const puntajes = JSON.parse(localStorage.getItem("puntajes")) || [];
                 const tablaPuntajes = document.getElementById("tablaPuntajes");
 
-                // Si no hay puntajes, mostrar mensaje
-                if (puntajes.length === 0) {
+                if (puntajes.length == 0) {
                     tablaPuntajes.innerHTML = '<tr><td colspan="3" class="text-center">No hay puntajes guardados</td></tr>';
                 }
 
@@ -91,10 +88,11 @@
                     const fila = document.createElement('tr');
 
                     const celdaNombre = document.createElement('td');
-                    celdaNombre.textContent = puntaje.nombre;
                     const celdaPuntuacion = document.createElement('td');
-                    celdaPuntuacion.textContent = puntaje.puntuacion;
                     const celdaHora = document.createElement('td');
+
+                    celdaNombre.textContent = puntaje.nombre;
+                    celdaPuntuacion.textContent = puntaje.puntuacion;
                     celdaHora.textContent = puntaje.hora;
 
 
