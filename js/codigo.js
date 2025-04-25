@@ -183,11 +183,15 @@ function VerificarRespuesta(opcionSeleccionada) {
         
         // Colorear el botón de la respuesta correcta
         if (boton.textContent === preguntaActual.respuesta) {
-            boton.className = "btn btn-success mb-2 w-100";
+            boton.style.backgroundColor = "#28a745";
+            boton.style.borderColor = "#28a745";
+            boton.style.color = "white";
         }
         // Colorear el botón de la respuesta incorrecta seleccionada
         else if (boton.textContent === opcionSeleccionada && !esCorrecta) {
-            boton.className = "btn btn-danger mb-2 w-100";
+            boton.style.backgroundColor = "#dc3545";
+            boton.style.borderColor = "#dc3545";
+            boton.style.color = "white";
         }
     });
     
@@ -699,7 +703,7 @@ const triviaPreguntas = {
       "respuesta": "Miroslav Klose"
     },
     {
-      "pregunta": "¿Cuántos puntos vale un gol en baloncesto?",
+      "pregunta": "¿Cuántos puntos vale una cesta en baloncesto?",
       "opciones": ["1", "2", "3", "4"],
       "respuesta": "2"
     },
